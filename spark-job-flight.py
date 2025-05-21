@@ -5,7 +5,12 @@ import argparse
 spark = SparkSession.builder.appName('airflow1').getOrCreate()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--date', required=True)
+parser.add_argument('--PROJECT_ID', required=True)
+parser.add_argument('--BUCKET_NAME', required=True)
+parser.add_argument('--ENV_NAME', required=True)
+parser.add_argument('--DATASET_NAME', required=True)
+parser.add_argument('--TABLE_NAME', required=True)
+
 args = parser.parse_args()
 
 # Reading the csv files
