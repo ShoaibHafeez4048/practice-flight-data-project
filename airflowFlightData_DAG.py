@@ -45,7 +45,7 @@ pyspark_task = DataprocCreateBatchOperator(
     dag = my_DAG,
     task_id="pyspark_task", 
     batch = BATCH,
-    batch_id = 'dataproc_serverless',
+    batch_id = 'dataprocserverless',
     region = REGION, 
     project_id = PROJECT_ID
 )
