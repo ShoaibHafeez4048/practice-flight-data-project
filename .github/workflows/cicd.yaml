@@ -97,4 +97,4 @@ jobs:
           gcloud composer environments storage dags import \
             --environment airflow-prod \
             --location us-east4 \
-            --source airflow_job/airflow_job.py
+            --source airflowFlightData_DAG.py

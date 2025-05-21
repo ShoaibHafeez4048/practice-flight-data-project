@@ -4,7 +4,7 @@ from airflow.models import Variable
 
 spark = SparkSession.builder.appName('airflow1').getOrCreate()
 
-variable_dict = Variable.get("Env_vars")
+variable_dict = Variable.get("Env_vars", deserialize_json=True)
 PROJECT_ID = variable_dict["PROJECT_ID"]
 BUCKET_NAME = variable_dict["BUCKET_NAME"]
 DATASET_NAME = variable_dict["DATASET_NAME"]
