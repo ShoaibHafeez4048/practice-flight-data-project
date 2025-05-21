@@ -8,7 +8,7 @@ my_DAG = DAG(
     default_args = {'retries': 1}
 )
 
-variable_dict = Variable.get("Env_vars")
+variable_dict = Variable.get("Env_vars", deserialize_json=True)
 PROJECT_ID = variable_dict["PROJECT_ID"] # 'smart-arc-459310-g9'
 REGION = variable_dict["REGION"] # 'us-east1'
 BUCKET_NAME = variable_dict["BUCKET_NAME"]
