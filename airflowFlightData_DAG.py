@@ -15,6 +15,9 @@ BUCKET_NAME = variable_dict["BUCKET_NAME"]
 ENV_NAME = variable_dict["ENV_NAME"]
 PYSPARK_JOB = f'gs://{BUCKET_NAME}/spark-jobs/spark-job-flight.py'
 
+DATASET_NAME = variable_dict["DATASET_NAME"]
+TABLE_NAME = variable_dict["TABLE_NAME"]
+
 wait_for_gcs_file = GCSObjectExistenceSensor(
     dag=my_DAG,
     task_id='wait_for_gcs_file',
@@ -27,7 +30,14 @@ wait_for_gcs_file = GCSObjectExistenceSensor(
 
 BATCH = {
     "pyspark_batch": {
-        "main_python_file_uri": PYSPARK_JOB
+        "main_python_file_uri": PYSPARK_JOB,
+        "args": [
+                f"--PROJECT_ID={PROJECT_ID}",
+                f"--BUCKET_NAME={BUCKET_NAME}",
+                f"--ENV_NAME={ENV_NAME}",
+                f"--DATASET_NAME={DATASET_NAME}",
+                f"--TABLE_NAME={TABLE_NAME}"
+            ]
     },
     "runtime_config": {
         "version": "2.1"
