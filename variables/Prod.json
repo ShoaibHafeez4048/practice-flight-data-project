@@ -1,0 +1,11 @@
+{
+    "Env_vars": {
+        "ENV_NAME": "prod",
+        "PROJECT_ID": "smart-arc-459310-g9",
+        "REGION":"us-east1",
+        "BUCKET_NAME":"data-airflow4048",
+        "DATASET_NAME":"flight_prod",
+        "TABLE_NAME":"flight_bookings"
+    }
+
+}
